@@ -1,7 +1,7 @@
 from linkedin_api import Linkedin
 import time
 
-api = Linkedin('gutonunes99@gmail.com', 'guitarpro41')
+api = Linkedin('youremail@email.com', 'your-password')
 
 def main(max_tentativas=10, intervalo=2):
     tentativas = 0
