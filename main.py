@@ -1,7 +1,7 @@
 from linkedin_api import Linkedin
 import time
 
-api = Linkedin('youremail@email.com', 'your-password')
+api = Linkedin('linkedin-bot@getambush.com', 'BHbNgEuJRePXx7C')
 
 def main(max_tentativas=10, intervalo=2):
     tentativas = 0
