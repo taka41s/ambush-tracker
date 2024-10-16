@@ -17,7 +17,7 @@ class Crawler:
         profile_ids = []
 
         for nome, url in lines:
-            profile_id = Crawler.extract_linkedin_id(url)  # Use a URL em vez da lista
+            profile_id = Crawler.extract_linkedin_id(url)
             if profile_id:
                 profile_ids.append(profile_id)
 
