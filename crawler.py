@@ -1,7 +1,7 @@
 import csv
 from linkedin_api import Linkedin
 
-api = Linkedin('linkedin-bot@getambush.com', 'BHbNgEuJRePXx7C')
+api = Linkedin('email@email.com', 'password')
 
 class Crawler:
     @staticmethod
@@ -12,8 +12,8 @@ class Crawler:
         with open('url-list.csv', 'r', newline='') as file:
             reader = csv.reader(file)
             next(reader, None)
-            lines = [(row[0].strip(), row[1].strip()) for row in reader]
-
+            lines = [(row[0].strip(), row[2].strip()) for row in reader]
+            print(lines)
         profile_ids = []
 
         for nome, url in lines:
@@ -24,7 +24,7 @@ class Crawler:
         for profile_id in profile_ids:
             print(profile_id)
             profile = api.get_profile(profile_id)
-            ambush_experiences = [exp for exp in profile.get('experience', []) if exp.get('companyName') == 'Ambush']
+            ambush_experiences = [exp for exp in profile.get('experience', []) if exp.get('companyName') == 'Ambush' or exp.get('companyName') == 'Echo54' ]
 
             if not ambush_experiences:
                 with open('notambush.txt', 'a') as file:

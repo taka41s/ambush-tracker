@@ -13,7 +13,5 @@ def main(max_tries=1, intervalo=0):
             print(f"Tentativa {tries} falhou: {e}")
             if tries < max_tries:
                 time.sleep(intervalo)
-    print("Todas as tentativas falharam.")
-    return None
 
 main()
