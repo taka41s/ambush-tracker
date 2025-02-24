@@ -1,7 +1,7 @@
 import csv
 from linkedin_api import Linkedin
 
-api = Linkedin('email@email.com', 'password')
+api = Linkedin('example@example.com', 'example')
 
 class Crawler:
     @staticmethod
@@ -23,10 +23,10 @@ class Crawler:
 
         for profile_id in profile_ids:
             print(profile_id)
-            profile = api.get_profile(profile_id)
-            ambush_experiences = [exp for exp in profile.get('experience', []) if exp.get('companyName') == 'Ambush' or exp.get('companyName') == 'Echo54' ]
+            profile = api.get_experience(profile_id)
+            matches = matches = any(item in ['echo54', 'Ambush'] for item in profile)
 
-            if not ambush_experiences:
+            if not matches:
                 with open('notambush.txt', 'a') as file:
                     file.write('https://www.linkedin.com/in/' + profile_id + "\n")
                 print("Nenhuma experiência encontrada com a empresa 'Ambush'. URL escrita em notambush.txt.")
